@@ -22,7 +22,10 @@ class MustacheView extends View {
 		);
 
         $this->M = $mustache;
-		parent::__construct($controller, $register);
+		parent::__construct($controller);
+
+        // reset ext
+        $this->ext = ".mustache";
     }
 
     /**
