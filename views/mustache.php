@@ -71,10 +71,10 @@ class MustacheView extends View {
      * $param mixed $partials Partials view of the template;
 	 */
 	public function render($template = null, $view = null, $partials = null) {
+        App::import('Core', 'File');
         $viewFileName = $this->_getViewFileName($template);
-        ob_start();
-        include ($viewFileName);
-        $template = ob_get_clean();
+        $file = new File($viewFileName);
+        $template = $file->read();
         return $this->M->render($template, $view, $partials);
 	}
 }
