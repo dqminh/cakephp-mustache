@@ -77,4 +77,8 @@ class MustacheView extends View {
         $template = $file->read();
         return $this->M->render($template, $view, $partials);
 	}
+
+    public function renderText($template = null, $view = null) {
+        return $this->M->render($template, $view);
+    }
 }
